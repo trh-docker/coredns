@@ -1,3 +1,3 @@
 git add -A
-git commit -m "workdir off"
+git commit -m "v1.8.0"
 git push

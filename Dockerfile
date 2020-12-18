@@ -28,6 +28,7 @@ RUN git clone https://github.com/coredns/coredns.git &&\
     cd coredns &&\
     cp /tmp/plugin.cfg . &&\
     go mod vendor &&\
+    go get github.com/wenerme/wps@latest &&\
     make
 
 FROM quay.io/spivegin/tlmbasedebian:latest

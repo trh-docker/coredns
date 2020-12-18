@@ -24,11 +24,11 @@ RUN apt-get update && apt-get -y upgrade &&\
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD files/coredns/plugin.cfg /tmp/plugin.cfg
-RUN git clone https://github.com/coredns/coredns.git &&\
+RUN git clone https://github.com/goconnectx/coredns.git &&\
     cd coredns &&\
-    cp /tmp/plugin.cfg . &&\
+    # cp /tmp/plugin.cfg . &&\
     go mod vendor &&\
-    go get github.com/wenerme/wps@latest &&\
+    # go get github.com/wenerme/wps@latest &&\
     make
 
 FROM quay.io/spivegin/tlmbasedebian:latest

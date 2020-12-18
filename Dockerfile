@@ -23,10 +23,10 @@ RUN apt-get update && apt-get -y upgrade &&\
     apt-get -y autoclean &&\
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# ADD files/coredns/plugin.cfg /tmp/plugin.cfg
+ADD files/coredns/plugin.cfg /tmp/plugin.cfg
 RUN git clone https://github.com/coredns/coredns.git &&\
     cd coredns &&\
-    # cd coredns && cp /tmp/plugin.cfg . &&\
+    cp /tmp/plugin.cfg . &&\
     go mod vendor &&\
     make
 

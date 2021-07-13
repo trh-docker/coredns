@@ -18,12 +18,12 @@ ENV deploy=c1f18aefcb3d1074d5166520dbf4ac8d2e85bf41 \
 RUN git config --global url.git@github.com:.insteadOf https://github.com/ &&\
     git config --global url.git@gitlab.com:.insteadOf https://gitlab.com/ &&\
     git config --global url."https://${deploy}@sc.tpnfc.us/".insteadOf "https://sc.tpnfc.us/"
-RUN apt-get update && apt-get -y upgrade &&\
-    apt-get install -y unzip wget git build-essential &&\
-    apt-get -y autoclean &&\
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# RUN apt-get update && apt-get -y upgrade &&\
+#     apt-get install -y unzip wget git build-essential &&\
+#     apt-get -y autoclean &&\
+#     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD files/coredns/plugin.cfg /tmp/plugin.cfg
+# ADD files/coredns/plugin.cfg /tmp/plugin.cfg
 RUN git clone https://gitlab.com/trhhosting/coredns.git &&\
     cd coredns &&\
     # cp /tmp/plugin.cfg . &&\

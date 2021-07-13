@@ -1,3 +1,3 @@
 git add -A
-git commit -m "added psql"
+git commit -m "core version"
 git push

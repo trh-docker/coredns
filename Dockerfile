@@ -1,7 +1,7 @@
   
 FROM quay.io/spivegin/gitonly:latest AS git
 
-FROM quay.io/spivegin/golang:v1.15.2  AS dev-build
+FROM quay.io/spivegin/golang:v1.16.2  AS dev-build
 WORKDIR /opt/src/src/github.com/coredns
 
 RUN ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa && git config --global user.name "quadtone" && git config --global user.email "quadtone@txtsme.com"
@@ -24,10 +24,10 @@ RUN apt-get update && apt-get -y upgrade &&\
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD files/coredns/plugin.cfg /tmp/plugin.cfg
-RUN git clone https://github.com/goconnectx/coredns.git &&\
+RUN git clone https://gitlab.com/trhhosting/coredns.git &&\
     cd coredns &&\
     # cp /tmp/plugin.cfg . &&\
-    go mod vendor &&\
+    # go mod vendor &&\
     # go get github.com/wenerme/wps@latest &&\
     make
 
